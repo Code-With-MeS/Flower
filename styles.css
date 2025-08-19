@@ -1,0 +1,151 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  height: 100%;
+  background: linear-gradient(to bottom, #2b0a3d, #4b1248);
+  font-family: 'Georgia', serif;
+  color: white;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.peony {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  animation: bloom 3s ease-in-out forwards;
+}
+
+.center {
+  width: 60px;
+  height: 60px;
+  background: #c71585;
+  border-radius: 50%;
+  position: absolute;
+  top: 70px;
+  left: 70px;
+  z-index: 5;
+  box-shadow: 0 0 10px #ff69b4;
+}
+
+.petal {
+  width: 140px;
+  height: 140px;
+  background: #db7093;
+  border-radius: 50%;
+  position: absolute;
+  opacity: 0.85;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+.layer1 {
+  top: 0;
+  left: 30px;
+  transform: rotate(0deg);
+}
+.layer2 {
+  top: 30px;
+  left: 0;
+  transform: rotate(45deg);
+}
+.layer3 {
+  top: 30px;
+  left: 60px;
+  transform: rotate(-45deg);
+}
+.layer4 {
+  top: 70px;
+  left: 30px;
+  transform: rotate(90deg);
+}
+
+.leaf {
+  width: 100px;
+  height: 60px;
+  background: #013220;
+  border-radius: 50% 50% 0 0;
+  position: absolute;
+  bottom: -20px;
+  opacity: 0.8;
+}
+
+.leaf1 {
+  left: 10px;
+  transform: rotate(-30deg);
+}
+.leaf2 {
+  right: 10px;
+  transform: rotate(30deg);
+}
+
+.message {
+  position: absolute;
+  bottom: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5em;
+  color: #ffccff;
+  text-shadow: 0 0 10px #ff69b4;
+  animation: fadeIn 3s ease-in-out 2s forwards;
+  opacity: 0;
+}
+
+@keyframes bloom {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+.falling-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.falling-petal {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  background: #ffb6c1;
+  border-radius: 50% 50% 50% 0;
+  transform: rotate(45deg);
+  opacity: 0.7;
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
